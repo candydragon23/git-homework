@@ -10,10 +10,17 @@ def test_addition_with_bug():
     print('test basic addition with bugs')
     #assert add_with_bug(6, 7) == 13 # will fail here
 def test_addition_duplicated():
-    #is it a real good test (relies on abscence of + in add)
     assert add(2, 3) == 2 + 3
     print('test addition duplicated')
+def test_addition_overcomplicated():
+    for i in range(0, 2**32):
+        for j in range(0, 2**32):
+            assert add(i, j) == sum(i, j)
+            assert add(-i, -j) == sum(-i, -j)
+            assert add(-i, j) == sum(-i, j)
+            assert add(i, -j) == sum(i, -j)
 if __name__ == '__main__':
     test_addition()
     test_addition_with_bug()
     test_addition_duplicated()
+    #test_addition_overcomplicated()

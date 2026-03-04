@@ -1,9 +1,9 @@
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 
-now = datetime.now()
+current = datetime.now()
+url_template = "https://simurg.space/gen_file?data=obs&date={date}"
 while True:
-    url_template = "https://simurg.space/gen_file?data=obs&date={date}"
     date = now.strftime("%Y-%m-%d")
     url = url_template.format(date=date)
 
@@ -12,3 +12,5 @@ while True:
     if response.status_code == 200:
         print("Last available data are for {date}")
         break
+    else:
+        current = current - timedelta(days = 1)

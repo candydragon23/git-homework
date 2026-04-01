@@ -1,6 +1,12 @@
 # TODO refactor this module using buisness logic names
 
 def _parse_record(line, str):
+    """Parses one record from sales files:
+    Parameters:
+        line - one record from sales `product_name.category.unit_price.quantity`
+    Returns:
+        Sales information in form dict
+    """
     sale = line.strip().split(",")
     if len(sale) != 4: # according to specs all sales have 4 cols
         return None
@@ -9,7 +15,7 @@ def _parse_record(line, str):
     try:
         unit_price = float(sale[2])
         quantity = int(sale[3])
-        if quantity != sale[3]:
+        if quantity != sale[3]: # quantity should always be an integer
             return None
     except ValueError:
         return None

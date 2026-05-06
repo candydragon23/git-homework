@@ -24,7 +24,6 @@ services:
             interval: 5s
             timeout: 5s
             retries: 3
-            start_perdiod: 10s
         environment:
             POSTGRES_USER: app
             POSTGRES_PASSWORD: app

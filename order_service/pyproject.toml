@@ -1,20 +1,20 @@
-[project]
+[tool.poetry]
 name = "order-service"
 version = "0.0.1"
-description = "Application for serving user's orders"
-authors = [
-    {name = "Roman Satin",email = "gans2010@list.ru"}
-]
+description = "Application for serving user's oreders"
+authors = ["Artem Vesnin <artemvesnin@gmail.com>"]
+license = "MIT"
 readme = "README.md"
 packages = [{ include = "app", from = "src" }]
-requires-python = ">=3.12"
-dependencies = [
-    "fastapi (>=0.136.1,<0.137.0)",
-    "uvicorn[standard] (>=0.46.0,<0.47.0)",
-    "httpx (>=0.28.1,<0.29.0)",
-]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.136.1"
+uvicorn = {extras = ["standard"], version = "^0.46.0"}
+httpx = "^0.28.1"
+psycopg = {extras = ["binary"], version = "^3.3.4"}
 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

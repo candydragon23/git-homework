@@ -1,0 +1,7 @@
+requests
+fastapi
+numpy
+mypy
+pytest
+pytest-cov
+black
